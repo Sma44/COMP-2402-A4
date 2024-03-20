@@ -17,7 +17,6 @@ class Pit{
         void print(PartArray*, Hero*, Hero*);
 
     private:
-        char layout[MAX_ROW+1][MAX_COL+1];
-        
+        char layout[MAX_ROW+1][MAX_COL+1];    
 };
 #endif
