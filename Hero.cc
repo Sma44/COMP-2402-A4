@@ -20,8 +20,10 @@ void Hero::move(Pit* p) {
       }
       return;
     }
-    if (p->validPos(pos->getRow(), pos->getCol()+1)){
-      pos->set(pos->getRow(), pos->getCol()+1);
+    else{
+      if (p->validPos(pos->getRow(), pos->getCol()+1)){
+        pos->set(pos->getRow(), pos->getCol()+1);
+      }
     }
     return;
   }
