@@ -1,7 +1,6 @@
-#include <iostream>
 #include "Pit.h"
-//#include "PartArray.h"
-//#include "Hero.h"
+#include "PartArray.h"
+#include "Hero.h"
 
 Pit::Pit(char l[MAX_ROW+1][MAX_COL+1]) {
     for (int i = 0; i < MAX_ROW+1; i++){
@@ -22,7 +21,6 @@ bool Pit::validPos(int row, int col) {
     return false;
 }
 
-// since rows are stored top to bottom, -1 to row to see above pos
 bool Pit::underLedge(Position* p) {
     if (withinBounds(p->getRow()-1, p->getCol())){
         return (!validPos(p->getRow()-1, p->getCol()));
@@ -30,11 +28,40 @@ bool Pit::underLedge(Position* p) {
     return false;
 }
 
-// void Pit::print(PartArray* part, Hero* h1, hero* h2) {
-//      char tempLayout[MAX_ROW+1][MAX_COL+1];
-//      for (int i = 0; i < MAX_ROW+1; i++){
-//          for (int j = 0; j < MAX_COL+1; j++){
-//             tempLayout[i][j] = layout[i][j];
-//          }
-//      }
-// }
+void Pit::print(PartArray* part, Hero* h1, Hero* h2) {
+    char tempLayout[MAX_ROW+1][MAX_COL+1];
+
+    for (int i = 0; i < MAX_ROW+1; i++){
+        for (int j = 0; j < MAX_COL+1; j++){
+           tempLayout[i][j] = layout[i][j];
+        }
+    }
+
+    for (int i = 0; i < part->getSize(); i++){
+        int r = part->get(i)->getRow();
+        int c = part->get(i)->getCol();
+        tempLayout[r][c] = part->get(i)->getAvatar();
+    }
+
+    for (int i = 0; i < MAX_ROW-2; i++){
+        for (int j = 0; j < MAX_COL+1; j++){
+           cout << tempLayout[i][j];
+        }
+        cout << endl;
+    }
+
+    for (int j = 0; j < MAX_COL+1; j++){
+        cout << tempLayout[MAX_ROW-1][j];
+    }
+
+    cout << setw(5) << " " << setw(6) << left << h1->getName() << ":  "
+         << h1->getHealth() << endl;
+
+    for (int j = 0; j < MAX_COL+1; j++){
+        cout << tempLayout[MAX_ROW][j];
+    }
+
+    cout << setw(5) << " " << setw(6) << left << h2->getName() << ":  "
+         << h2->getHealth() << endl;
+
+}
