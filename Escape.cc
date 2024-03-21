@@ -1,7 +1,6 @@
 #include "Escape.h"
 
-Escape::Escape()
-{
+Escape::Escape() {
   const char templateGrid[MAX_ROW+1][MAX_COL+1]={
       "-------------------------",
       "-             --        -",
@@ -26,11 +25,14 @@ Escape::Escape()
   };
 
   srand( (unsigned)time( NULL ) );
-  int randNum1 = random(20) + HERO_SPAWN;
-  int randNum2 = random(20) + HERO_SPAWN;
+  int col1 = random(10) + LEFT_BOUND;
+  int col2 = random(10) + LEFT_BOUND;
+  while (col2 == col1){
+    col2 = random(10) + LEFT_BOUND;
+  }
 
-  h1 = new Hero('T', MAX_ROW-2, randNum1, "Timmy");
-  h2 = new Hero('H', MAX_ROW-2, randNum2, "Harold");
+  h1 = new Hero('T', MAX_ROW-2, col1, "Timmy");
+  h2 = new Hero('H', MAX_ROW-2, col2, "Harold");
 
   arr.add(h1);
   arr.add(h2);
@@ -43,14 +45,17 @@ Escape::~Escape() {
 }
 
 void Escape::runEscape() {
-  while(!isOver()){
+  bool flag = false;
+  int spawn;
+  while(!flag){
     usleep(200000);
-    int spawn = random(SNORC_SPAWN + NO_SPAWN);
-    if(spawn < 90){
+    spawn = random(SNORC_SPAWN + NO_SPAWN + 1);
+    if(spawn < SNORC_SPAWN){
       spawnSnorc();
     }
 
     moveParticipants();
+    flag = isOver();
 
     system("clear");
     pit->print(&arr, h1, h2);
@@ -81,11 +86,11 @@ bool Escape::isOver() {
 }
 
 void Escape::spawnSnorc() {
-  if (arr.getSize() == MAX_SNORCS + 2) { return; }
+  if (arr.getSize() == MAX_SNORCS + MAX_HEROES) { return; }
 
   int col = random(MAX_COL);
-  int row = random(5) + SNORC_HEIGHT;
-  int str = random(2) + MIN_STRENGTH;
+  int row = random(6) + MAX_HEIGHT;
+  int str = random(3) + MIN_STRENGTH;
 
   arr.add(new Snorc(row, col, str));
 }
