@@ -1,5 +1,4 @@
 #include "Hero.h"
-#include "random.cc"
 
 Hero::Hero(char ava, int row, int col, string n) 
 : Participant(ava, row, col), name(n), health(MAX_HEALTH) {}

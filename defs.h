@@ -16,7 +16,7 @@ using namespace std;
 #define SNORC_SPAWN   90
 #define MAX_SNORCS    12
 
-#define HERO_SPAWN    7
+#define HERO_SPAWN    2
 #define SNORC_HEIGHT  12
 #define MIN_STRENGTH  2
 #define NO_SPAWN      9

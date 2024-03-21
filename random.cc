@@ -1,5 +1,4 @@
 #include <iostream>
-#include "defs.h"
 /*
   You must seed the random number generator with the current
   time in main(), before any calls to random(); use the 

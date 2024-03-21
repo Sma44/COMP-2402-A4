@@ -26,8 +26,8 @@ Escape::Escape()
   };
 
   srand( (unsigned)time( NULL ) );
-  int randNum1 = random(9) + HERO_SPAWN;
-  int randNum2 = random(9) + HERO_SPAWN;
+  int randNum1 = random(20) + HERO_SPAWN;
+  int randNum2 = random(20) + HERO_SPAWN;
 
   h1 = new Hero('T', MAX_ROW-2, randNum1, "Timmy");
   h2 = new Hero('H', MAX_ROW-2, randNum2, "Harold");
@@ -44,6 +44,7 @@ Escape::~Escape() {
 
 void Escape::runEscape() {
   while(!isOver()){
+    usleep(200000);
     int spawn = random(SNORC_SPAWN + NO_SPAWN);
     if(spawn < 90){
       spawnSnorc();
@@ -51,6 +52,7 @@ void Escape::runEscape() {
 
     moveParticipants();
 
+    system("clear");
     pit->print(&arr, h1, h2);
   }
   printOutcome();

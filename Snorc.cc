@@ -1,5 +1,4 @@
 #include "Snorc.h"
-#include "random.cc"
 
 Snorc::Snorc(int row, int col, int str)
 : Participant('s',row,col), strength(str) {}
