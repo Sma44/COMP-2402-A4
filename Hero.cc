@@ -7,7 +7,7 @@
 #define FAST_CLIMB 6
 
 Hero::Hero(char ava, int row, int col, string n) 
-: Participant(ava, row, col), name(n){}
+: Participant(ava, row, col), name(n), health(MAX_HEALTH) {}
 
 void Hero::move(Pit* p) {
   if (isDead() || isSafe()){ return; }
