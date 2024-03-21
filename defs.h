@@ -23,7 +23,7 @@ using namespace std;
 #define LEFT          0
 #define MAX_CLIMB     12
 #define FORWARD       1
-#define LEFT_BOUND    6
+#define LEFT_BOUND    7
 
 int random(int);
 

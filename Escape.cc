@@ -49,7 +49,7 @@ void Escape::runEscape() {
   int spawn;
   while(!flag){
     usleep(200000);
-    spawn = random(SNORC_SPAWN + NO_SPAWN + 1);
+    spawn = random(SNORC_SPAWN + NO_SPAWN);
     if(spawn < SNORC_SPAWN){
       spawnSnorc();
     }
