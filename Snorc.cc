@@ -4,8 +4,8 @@ Snorc::Snorc(int row, int col, int str)
 : Participant('s',row,col), strength(str) {}
 
 void Snorc::move(Pit* p) {
-  int randNum = random(1);
-  int randDir = random(2);
+  int randNum = random(2);
+  int randDir = random(3);
   int colOffset = 0;
   
   switch (randDir) {
@@ -21,17 +21,20 @@ void Snorc::move(Pit* p) {
     break;
   }
   
-  if (pos->getRow() != MAX_CLIMB) {
-    if (randNum == FORWARD){
+  
+  if (randNum == FORWARD){
+    if (pos->getRow() > MAX_CLIMB) {
       if (p->withinBounds(pos->getRow()-1,pos->getCol())){
         pos->set(pos->getRow()-1,pos->getCol());
       }
-    }else{
-      if (p->withinBounds(pos->getRow()+1,pos->getCol())){
-        pos->set(pos->getRow()+1,pos->getCol());
-      }
     }
   }
+  else{
+    if (p->withinBounds(pos->getRow()+1,pos->getCol())){
+      pos->set(pos->getRow()+1,pos->getCol());
+    }
+  }
+
 
   if (p->withinBounds(pos->getRow(),pos->getCol() + colOffset)){
     pos->set(pos->getRow(),pos->getCol() + colOffset);
