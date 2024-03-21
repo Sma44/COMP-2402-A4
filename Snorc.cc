@@ -1,7 +1,7 @@
 #include "Snorc.h"
 #include "random.cc"
 
-#define MAX_CLIMB MAX_ROW - 7
+#define MAX_CLIMB (MAX_ROW - 7)
 #define FORWARD 1
 
 Snorc::Snorc(int row, int col, int str)

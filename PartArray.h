@@ -13,7 +13,7 @@ class PartArray {
 
   private:
     Participant* elements[MAX_ARR];
-    int   size;
+    int size;
 };
 #endif
 
