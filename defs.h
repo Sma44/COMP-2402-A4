@@ -16,19 +16,21 @@ using namespace std;
 #define SNORC_SPAWN   90
 #define MAX_SNORCS    12
 
+#define HERO_SPAWN    7
+#define SNORC_HEIGHT  12
+#define MIN_STRENGTH  2
+#define NO_SPAWN      9
+#define LEFT          0
+#define RIGHT         3
+#define SLOW_CLIMB    5
+#define FAST_CLIMB    6
+#define MAX_CLIMB (MAX_ROW - 7)
+#define FORWARD 1
+
 int random(int);
 
 #endif
 
-// both heroes and snorcs dynamic allocation stored in the same collection, no order in collection
-// game loops until both die or either escapes
-// start with no snorcs. 90% chance a new snorc spawns, max 12. starts at random row in the bottom 5 rows and column
-// random strenght between 2 and 4 inclusive
-
-// on each itr, a new posiution is computed polymorphically based on random values, in 3.4, and position updated
-// anything greater or less than bounds of board set to closest value.
-// once postion updated, must check with every participant for collision. both occcupy same row and column.
-// if occured deal with it polymophically, two heroes or two snorcs, nothing happens, else deal damage to health based on damage
 // at end of itr, pit is printed. both health updated and printed
 // once done, print both healths and names on screen, print outcome
  

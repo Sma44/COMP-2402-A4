@@ -1,11 +1,6 @@
 #include "Hero.h"
 #include "random.cc"
 
-#define LEFT       0
-#define RIGHT      3
-#define SLOW_CLIMB 5
-#define FAST_CLIMB 6
-
 Hero::Hero(char ava, int row, int col, string n) 
 : Participant(ava, row, col), name(n), health(MAX_HEALTH) {}
 
