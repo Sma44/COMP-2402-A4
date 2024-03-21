@@ -5,7 +5,7 @@
 
 class Participant{
     public:
-        Participant(char, int, int);
+        Participant(char=' ', int=0, int=0);
         virtual ~Participant();
         virtual void move(Pit*) = 0;
         virtual void incurDamage(Participant*) = 0;
