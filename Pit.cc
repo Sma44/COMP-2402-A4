@@ -31,8 +31,8 @@ bool Pit::underLedge(Position* p) {
 void Pit::print(PartArray* part, Hero* h1, Hero* h2) {
     char tempLayout[MAX_ROW+1][MAX_COL+1];
 
-    for (int i = 0; i < MAX_ROW+1; i++){
-        for (int j = 0; j < MAX_COL+1; j++){
+    for (int i = 0; i < MAX_ROW; i++){
+        for (int j = 0; j < MAX_COL; j++){
            tempLayout[i][j] = layout[i][j];
         }
     }
@@ -44,20 +44,20 @@ void Pit::print(PartArray* part, Hero* h1, Hero* h2) {
     }
 
     for (int i = 0; i < MAX_ROW-2; i++){
-        for (int j = 0; j < MAX_COL+1; j++){
+        for (int j = 0; j < MAX_COL; j++){
            cout << tempLayout[i][j];
         }
         cout << endl;
     }
 
-    for (int j = 0; j < MAX_COL+1; j++){
+    for (int j = 0; j < MAX_COL; j++){
         cout << tempLayout[MAX_ROW-2][j];
     }
 
     cout << setw(5) << " " << setw(6) << left << h1->getName() << ":  "
          << h1->getHealth() << endl;
 
-    for (int j = 0; j < MAX_COL+1; j++){
+    for (int j = 0; j < MAX_COL; j++){
         cout << tempLayout[MAX_ROW-1][j];
     }
 
