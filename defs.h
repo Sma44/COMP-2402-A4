@@ -31,6 +31,4 @@ int random(int);
 
 #endif
 
-// at end of itr, pit is printed. both health updated and printed
-// once done, print both healths and names on screen, print outcome
  
