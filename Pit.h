@@ -10,7 +10,7 @@ class Hero;
 
 class Pit{
     public:
-        Pit(const char[MAX_ROW+1][MAX_COL+1]); // maybe? donno if this works. the assignment operator cannot be used to copy entire arrays.
+        Pit(const char[MAX_ROW+1][MAX_COL+1]);
         bool validPos(int, int);
         bool withinBounds(int,int);
         bool underLedge(Position*);
