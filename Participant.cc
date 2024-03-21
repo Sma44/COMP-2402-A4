@@ -12,7 +12,11 @@ bool Participant::collide(Participant* part) {
 
 // TODO: might be row 0, or 1, not sure
 bool Participant::isSafe() {
-    return (pos->getRow() == 1) ? true : false;
+    bool ret = (pos->getRow() == 1) ? true : false;
+    if (ret){
+        avatar = ' ';
+    }
+    return ret;
 }
 
 int Participant::getRow() { return pos->getRow(); }
