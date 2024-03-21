@@ -18,10 +18,10 @@ using namespace std;
 
 #define NO_SPAWN      10 
 #define MAX_HEROES    2  
-#define MAX_HEIGHT    10
+#define MAX_HEIGHT    14
 #define MIN_STRENGTH  2 
 #define LEFT          0
-#define MAX_CLIMB     11
+#define MAX_CLIMB     12
 #define FORWARD       1
 #define LEFT_BOUND    6
 
