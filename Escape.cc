@@ -24,6 +24,8 @@ Escape::Escape() {
       "-------------------------"
   };
 
+  numSnorcs = 0;
+
   srand( (unsigned)time( NULL ) );
   int col1 = random(10) + LEFT_BOUND;
   int col2 = random(10) + LEFT_BOUND;
@@ -86,13 +88,14 @@ bool Escape::isOver() {
 }
 
 void Escape::spawnSnorc() {
-  if (arr.getSize() == MAX_SNORCS + MAX_HEROES) { return; }
+  if (numSnorcs == MAX_SNORCS) { return; }
 
   int col = random(MAX_COL);
   int row = random(6) + MAX_HEIGHT;
   int str = random(3) + MIN_STRENGTH;
 
   arr.add(new Snorc(row, col, str));
+  numSnorcs++;
 }
 
 Participant* Escape::checkForCollision(Participant* p) {
