@@ -84,7 +84,7 @@ void Escape::printOutcome(){
 
 
 bool Escape::isOver() {
-  return ((h1->isDead() || h1->isSafe()) && (h2->isDead() || h2->isSafe())) ? true : false;
+  return ((h1->isDead() || h1->isSafe()) && (h2->isDead() || h2->isSafe()));
 }
 
 void Escape::spawnSnorc() {
