@@ -5,7 +5,7 @@ Hero::Hero(char ava, int row, int col, string n)
 
 void Hero::move(Pit* p) {
   if (isDead() || isSafe()){ return; }
-  int ranNum = random(1);
+  int ranNum = random(2);
 
   if (p->underLedge(pos)){
     if (ranNum == LEFT){
@@ -22,8 +22,8 @@ void Hero::move(Pit* p) {
     return;
   }
 
-  ranNum = random(9);
-  int ranDir = random(4);
+  ranNum = random(10);
+  int ranDir = random(5);
   int rowOffset = 0;
   int colOffset = 0;
 
@@ -72,6 +72,7 @@ void Hero::move(Pit* p) {
 void Hero::incurDamage(Participant* p) {
   health -= p->causeDamage();
   if (health < 1){
+    health = 0;
     avatar = '+';
     dead = true;
   }
