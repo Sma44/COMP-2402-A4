@@ -1,8 +1,7 @@
 #include "Participant.h"
 
-// TODO: might not work with this
 Participant::Participant(char ava, int row, int col) 
-: avatar(ava), pos(new Position(row,col)) {}
+: avatar(ava), dead(false), pos(new Position(row,col)) {}
 
 Participant::~Participant() { delete pos; }
 
@@ -10,7 +9,6 @@ bool Participant::collide(Participant* part) {
     return (pos->getCol() == part->getCol() && pos->getRow() == part->getRow()) ? true : false;
 }
 
-// TODO: might be row 0, or 1, not sure
 bool Participant::isSafe() {
     bool ret = (pos->getRow() == 1) ? true : false;
     if (ret){
